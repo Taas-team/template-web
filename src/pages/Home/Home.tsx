@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -17,14 +16,14 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../common/components';
-import { useAuth } from '../../utils/hooks';
+import {itemList} from "../../common/components/Item";
 
 export const Home = ()=>{
   return (
       <>
         <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-            <Box>Kaly'Naka</Box>
+            <Box>E-sakafo</Box>
 
             <Flex alignItems={'center'}>
               <Stack direction={'row'} spacing={7}>
@@ -63,8 +62,10 @@ export const Home = ()=>{
               </Stack>
             </Flex>
           </Flex>
+          <Flex>
+
+          </Flex>
         </Box>
-        <Home/>
       </>
   );
 }
