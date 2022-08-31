@@ -16,8 +16,10 @@ import {
     useColorModeValue,
 } from '@chakra-ui/react';
 import {ItemAway} from "../../common/components/DrawerOrders";
+import {Feature} from "../../common/components/Features";
 
 export const LandingPage =() => {
+    // @ts-ignore
     return (
         <Container maxW={'7xl'}>
             <Stack

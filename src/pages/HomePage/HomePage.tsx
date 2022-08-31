@@ -5,6 +5,7 @@ import {HackWebProviders} from "../../providers/HackWebProviders";
 import {ProductCard} from "../../common/components/itemCard";
 import {Home} from "../Home";
 import {LandingPage} from "../LandingPage";
+import Footer from "../Footer/Footer";
 
 export const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ export const HomePage = () => {
             <ChakraProvider theme={theme}>
                 <Home/>
                 <LandingPage/>
+                <Footer/>
             </ChakraProvider>
         </HackWebProviders>
     );
