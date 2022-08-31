@@ -18,7 +18,7 @@ export const AddNewCommand =() => {
 
     return (
         <>
-            <Button onClick={onOpen}>Passer le commande</Button>
+            <Button onClick={onOpen} colorScheme='teal' variant='outline'>Passer le commande</Button>
             <Modal
                 initialFocusRef={initialRef}
                 finalFocusRef={finalRef}
@@ -48,15 +48,14 @@ export const AddNewCommand =() => {
                             </Select>
                         </FormControl>
                         <FormControl mt={4}>
-                            <FormLabel>Quantité</FormLabel>
-                            <Input placeholder='Téléphone' />
+                            <FormLabel>Téléphone </FormLabel>
+                            <Input placeholder='+261 34 20 258 45' type={'number'} />
                         </FormControl>
                         <FormControl mt={4}>
-                            <FormLabel>Téléphone</FormLabel>
-                            <Input placeholder='Téléphone' />
+                            <FormLabel>Quantité</FormLabel>
+                            <Input type={'number'}/>
                         </FormControl>
                     </ModalBody>
-
                     <ModalFooter>
                         <Button colorScheme='blue' mr={3}>
                            Confirmer
