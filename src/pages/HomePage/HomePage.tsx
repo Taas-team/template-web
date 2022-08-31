@@ -6,12 +6,13 @@ import {ProductCard} from "../../common/components/itemCard";
 import {Home} from "../Home";
 import {LandingPage} from "../LandingPage";
 import Footer from "../Footer/Footer";
+import {Navbar} from "../LandingPage/Navbar/Navbar";
 
 export const HomePage = () => {
     return (
         <HackWebProviders>
             <ChakraProvider theme={theme}>
-                <Home/>
+                <Navbar/>
                 <LandingPage/>
                 <Footer/>
             </ChakraProvider>
