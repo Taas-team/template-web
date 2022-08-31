@@ -9,11 +9,13 @@ import {
     Stack,
     Image,
 } from '@chakra-ui/react';
+import {itemCard} from "../../../types/proptypes/itemCard";
+import {AddNewCommand} from "../AddCommand";
 
 const IMAGE =
     'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
 
-export const ProductCard = () => {
+export const ProductCard : React.FC<itemCard> = () => {
     return (
         <Center py={12}>
             <Box
@@ -70,6 +72,7 @@ export const ProductCard = () => {
                         <Text textDecoration={'line-through'} color={'gray.600'}>
                             $199
                         </Text>
+                        <AddNewCommand/>
                     </Stack>
                 </Stack>
             </Box>

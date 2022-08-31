@@ -64,6 +64,7 @@ export const Home = ()=>{
             </Flex>
           </Flex>
         </Box>
+        <Home/>
       </>
   );
 }
