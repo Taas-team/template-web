@@ -42,7 +42,7 @@ export default function Footer() {
           </Stack>
 
           <Stack align={'flex-end'}>
-          <Text>© Copiright</Text>  
+          <Text>© Copyright</Text>
           </Stack>
         </SimpleGrid>
       </Container>

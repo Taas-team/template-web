@@ -52,7 +52,7 @@ function ModalAuth() {
                             pointerEvents="none"
                             children={<CFaUserAlt color="gray.300" />}
                           />
-                          <Input type="email" placeholder="email address" />
+                          <Input type="email" placeholder="Adresse email" />
                         </InputGroup>
                       </FormControl>
                       <FormControl>
@@ -64,7 +64,7 @@ function ModalAuth() {
                           />
                           <Input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Password"
+                            placeholder="Mot de Passe"
                           />
                           <InputRightElement width="4.5rem">
                             <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -79,8 +79,12 @@ function ModalAuth() {
                         variant="solid"
                         colorScheme="teal"
                         width="full"
+
                       >
-                        Login
+                        <a href = "http://192.168.0.123:3000">
+                          Se connecter
+                        </a>
+
                       </Button>
                     </Stack>
                   </form>

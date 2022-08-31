@@ -3,7 +3,6 @@ import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import {HackWebProviders} from "../../providers/HackWebProviders";
 import {ProductCard} from "../../common/components/itemCard";
-import {Home} from "../Home";
 import {LandingPage} from "../LandingPage";
 import Footer from "../Footer/Footer";
 import {Navbar} from "../LandingPage/Navbar/Navbar";
