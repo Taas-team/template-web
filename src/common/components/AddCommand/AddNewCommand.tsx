@@ -18,7 +18,7 @@ export const AddNewCommand =() => {
 
     return (
         <>
-            <Button onClick={onOpen} colorScheme='teal' variant='outline'>Passer le commande</Button>
+            <Button onClick={onOpen} colorScheme='teal' variant='outline' >Passer le commande</Button>
             <Modal
                 initialFocusRef={initialRef}
                 finalFocusRef={finalRef}

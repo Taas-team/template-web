@@ -18,20 +18,23 @@ const IMAGE =
 
 export const ProductCard : React.FC<itemCard> = (props) => {
     return (
-        <Center py={12} width={'300px'}>
+        <Center py={10} ml={7} width={'300px'}>
             <Box
                 role={'group'}
                 p={6}
                 maxW={'330px'}
                 w={'full'}
-                bg={useColorModeValue('white', 'gray.800')}
+                bg={useColorModeValue('white', 'gray.500')}
                 boxShadow={'1xl'}
                 rounded={'lg'}
                 pos={'relative'}
-                zIndex={1}>
+                zIndex={1}
+                borderWidth='2px'
+                borderRadius='lg'
+                overflow='hidden'>
                 <Box
                     rounded={'lg'}
-                    mt={-12}
+                    mt={3}
                     pos={'relative'}
                     height={'230px'}
                     _after={{
@@ -43,12 +46,12 @@ export const ProductCard : React.FC<itemCard> = (props) => {
                         top: 5,
                         left: 0,
                         backgroundImage: `url(${IMAGE})`,
-                        filter: 'blur(10px)',
-                        zIndex: -1,
+                        filter: 'blur(5px)',
+                        zIndex: -2,
                     }}
                     _groupHover={{
                         _after: {
-                            filter: 'blur(15px)',
+                            filter: 'blur(6px)',
                         },
                     }}>
                     <Image
@@ -59,16 +62,16 @@ export const ProductCard : React.FC<itemCard> = (props) => {
                         src={IMAGE}
                     />
                 </Box>
-                <Stack pt={10} align={'center'}>
+                <Stack pt={8} align={'center'}>
                     <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
                        Entrée
                     </Text>
-                    <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+                    <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
                         Riz cantonnais
                     </Heading>
                     <Stack direction={'row'} align={'center'}>
-                        <Text fontWeight={800} fontSize={'xl'}>
-                            $10
+                        <Text fontWeight={500} fontSize={'lg'}>
+                            Ar 5000
                         </Text>
                         <AddNewCommand/>
                     </Stack>
