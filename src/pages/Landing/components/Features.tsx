@@ -11,7 +11,7 @@ interface FeatureProps {
 const Feature = ({ title, text, icon }: FeatureProps) => {
     return (
         <>
-            <Stack justifySelf={'center'}>
+            <Stack justifySelf={'center'} mx={6}>
                 <Divider/>
                 <Box pt={5}>
                     <Flex

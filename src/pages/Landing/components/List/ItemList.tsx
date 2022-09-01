@@ -66,11 +66,11 @@ export const ItemList = () => {
 
               <Wrap>
                   <WrapItem>
-                      <Center>
+
                           {dataSet.map((label)=>
                               <CardItem key={label.id} price={label.price} category={label.category} name={label.name}/>
                           )}
-                      </Center>
+
 
                   </WrapItem>
 
