@@ -1,123 +1,66 @@
-import { ReactNode } from 'react';
-import {
-    Stack,
-    Container,
-    Box,
-    Flex,
-    Text,
-    Heading,
-    SimpleGrid, useColorModeValue, useColorMode,
-} from '@chakra-ui/react';
+import { ReactElement } from 'react';
+import { Box, SimpleGrid, Icon, Text, Stack, Flex, Divider } from '@chakra-ui/react';
+import { FcSalesPerformance, FcConferenceCall, FcInTransit } from 'react-icons/fc';
 
-export default function Features() {
-    return (
-        <Box bg={useColorModeValue('gray.100', 'blackAlpha.100')} position={'relative'} >
-            <Flex
-
-                zIndex={0}
-                display={{ base: 'none' }}
-                backgroundSize={'cover'}
-                backgroundPosition="center"
-                backgroundRepeat="no-repeat"
-                position={'absolute'}
-                insetY={0}
-                right={0}>
-                <Flex
-                    bgGradient={'linear(to-r, gray.800 10%, transparent)'}
-                />
-            </Flex>
-            <Container maxW={'7xl'} zIndex={10} position={'relative'}>
-                <Stack direction={{ base: 'column', lg: 'row' }}>
-                    <Stack
-                        justify={{ lg: 'center' }}
-                        py={{ base: 1, md: 2, xl: 5 }}>
-                        <Box mb={{ base: 2, md: 20 }}>
-                            <Text
-                                fontFamily={'heading'}
-                                fontWeight={700}
-                                textTransform={'uppercase'}
-                                mb={3}
-                                fontSize={'xl'}
-                                >
-                               E-Sakafo Restaurant
-                            </Text>
-                            <Heading
-                                mb={5}
-                                fontSize={{ base: '2xl', md: '4xl' }}>
-                                #1 des restaurants en ligne à Madagascar
-                            </Heading>
-                            <Text fontSize={'xl'} >
-                                The NewLife™ technology allows you to monitor your crops and get
-                                complete insights at real time. The proprietary
-                                software/hardware ecosystem prevents your plants from getting
-                                neglected.
-                            </Text>
-                        </Box>
-
-                        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                            {stats.map((stat) => (
-                                <Box key={stat.title}>
-                                    <Text
-                                        fontFamily={'heading'}
-                                        fontSize={'3xl'}
-                                        mb={3}>
-                                        {stat.title}
-                                    </Text>
-                                    <Text fontSize={'xl'} >
-                                        {stat.content}
-                                    </Text>
-                                </Box>
-                            ))}
-                        </SimpleGrid>
-                    </Stack>
-                    <Flex flex={1} />
-                </Stack>
-            </Container>
-        </Box>
-    );
+interface FeatureProps {
+  title: string;
+  text: string;
+  icon: ReactElement;
 }
 
-const StatsText = ({ children }: { children: ReactNode }) => (
-    <Text as={'span'} fontWeight={700} >
-        {children}
-    </Text>
-);
+const Feature = ({ title, text, icon }: FeatureProps) => {
+  return (
+    <>
+      <Stack justifySelf={'center'}>
+        <Divider/>
+      <Box pt={5}>
+      <Flex
+        w={16}
+        h={16}
+        align={'center'}
+        justify={'center'}
+        color={'white'}
+        rounded={'full'}
+        bg={'gray.100'}
+        mb={1}
+        >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{title}</Text>
+      </Box>
+      <Text color={'gray.600'}>{text}</Text>
+    </Stack>
+    </>
+    
+  );
+};
 
-const stats = [
-    {
-        title: '10+',
-        content: (
-            <>
-                <StatsText>Software modules</StatsText> for detailed monitoring and
-                real-time analytics
-            </>
-        ),
-    },
-    {
-        title: '24/7',
-        content: (
-            <>
-                <StatsText>Analytics</StatsText> enabled right in your dashboard without
-                history limitations
-            </>
-        ),
-    },
-    {
-        title: '13%',
-        content: (
-            <>
-                <StatsText>Farms</StatsText> in North America has chosen NewLife™ as
-                their management solution
-            </>
-        ),
-    },
-    {
-        title: '250M+',
-        content: (
-            <>
-                <StatsText>Plants</StatsText> currently connected and monitored by the
-                NewLife™ software
-            </>
-        ),
-    },
-];
+export default function SimpleThreeColumns() {
+  return (
+    <Box p={4}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        <Feature
+          icon={<Icon as={FcSalesPerformance} w={10} h={10} />}
+          title={"Coût raisonnable"}
+          text={
+            "Les restaurants ont des prix différents, mais la règle d'or est que les clients doivent avoir le sentiment que le coût de leur repas est juste et raisonnable, même dans les établissements haut de gamme. Évitez de faire payer trop cher."
+          }
+        />
+        <Feature
+          icon={<Icon as={FcConferenceCall} w={10} h={10} />}
+          title={"Expertise culinaire"}
+          text={
+            "Les chefs sont choisis pour leurs compétences culinaires et leur inventivité. Cela s'applique aussi bien aux restaurants haut de gamme qu'aux restaurants économiques. De même, la direction du restaurant est passionnée par la nourriture, participe à la sélection des menus et est orientée vers le client."
+          }
+        />
+        <Feature
+          icon={<Icon as={FcInTransit} w={10} h={10} />}
+          title={"Livraison"}
+          text={
+            "L'objectif d'un restaurant à succès est d'offrir aux clients une excellente expérience globale qui les incite à revenir encore et encore. Cela signifie que tout est axé sur l'amélioration de l'expérience du client."
+          }
+        />
+      </SimpleGrid>
+    </Box>
+  );
+}

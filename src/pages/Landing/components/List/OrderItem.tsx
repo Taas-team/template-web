@@ -18,7 +18,7 @@ export const OrderItem = () => {
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme='green.400' color={'green.400'} variant='solid' >Passer le commande</Button>
+      <Button onClick={onOpen} colorScheme='green' bg={'green.400'} mr={3} borderRadius='25px'>Passer le commande</Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
@@ -57,10 +57,10 @@ export const OrderItem = () => {
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
+            <Button colorScheme='green' bg={'green.400'} mr={3} borderRadius='25px'>
               Confirmer
             </Button>
-            <Button onClick={onClose}>Annuler</Button>
+            <Button onClick={onClose} borderRadius='25px'>Annuler</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
