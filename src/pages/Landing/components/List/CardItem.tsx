@@ -1,11 +1,13 @@
-import { Center, useColorModeValue, Stack, Heading, Box, Image, Text } from '@chakra-ui/react';
+import { Center, useColorModeValue, Stack, Heading, Box, Image, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import React from 'react';
 import { OrderItem } from './OrderItem';
 
 const STATIC_IMAGE = 'https://th.bing.com/th/id/R.d1408c82b62294f0ab44ed2b4cc172f7?rik=jBirlT4ETc3MLA&pid=ImgRaw&r=0';
 
 export const CardItem = () => (
-  <Center py={10} ml={7} width={'300px'}>
+  <Wrap spacing='30px' mx={'7em'}>
+    <WrapItem>
+    <Center py={10} ml={7} width={'300px'}>
     <Box
       role={'group'}
       p={6}
@@ -63,4 +65,6 @@ export const CardItem = () => (
       </Stack>
     </Box>
   </Center>
+    </WrapItem>
+  </Wrap>
 )
