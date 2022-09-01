@@ -1,4 +1,15 @@
-import {Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  HStack, SimpleGrid,
+  useDisclosure
+} from '@chakra-ui/react';
 import React, {useEffect, useState} from 'react';
 import {listItem} from "../../../../common/components/List/Listitem";
 import {CardItem} from "../../CardItem";
@@ -51,11 +62,18 @@ export const ItemList = () => {
             {`Notre menu d'aujourd'hui`}
           </DrawerHeader>
           <DrawerBody>
-              <Box>
-                {dataSet.map((label)=>
-                    <CardItem key={label.id} price={label.price} category={label.category} name={label.name}/>
-                )}
-              </Box>
+              <>
+                <Box>
+                  {dataSet.map((label)=>
+
+                      <CardItem key={label.id} price={label.price} category={label.category} name={label.name}/>
+                  )}
+                </Box>
+
+              </>
+
+
+
 
           </DrawerBody>
         </DrawerContent>
