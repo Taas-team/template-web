@@ -28,7 +28,7 @@ export const Banner = () => (
         <Heading
           lineHeight={1.1}
           fontWeight={600}
-          fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+          fontSize={{ base: '2xl', sm: '3xl', lg: '5xl' }}>
           <Text
             as={'span'}
             position={'relative'}
@@ -42,11 +42,11 @@ export const Banner = () => (
               bg: 'green.400',
               zIndex: -1,
             }}>
-            Rien ne doit déranger
+           Bienvenue sur Kaly'Naka
           </Text>
           <br />
           <Text as={'span'} color={'green.400'}>
-            l'honnête homme qui dîne.
+            Réaliser votre rêve avec notre goût
           </Text>
         </Heading>
         <Stack
