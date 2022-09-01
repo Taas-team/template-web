@@ -12,11 +12,10 @@ export const CardItem = () => (
       maxW={'330px'}
       w={'full'}
       bg={useColorModeValue('white', 'gray.500')}
-      boxShadow={'1xl'}
+      boxShadow={'base'}
       rounded={'lg'}
       pos={'relative'}
       zIndex={1}
-      borderWidth='2px'
       borderRadius='lg'
       overflow='hidden'>
       <Box
@@ -32,7 +31,6 @@ export const CardItem = () => (
           pos: 'absolute',
           top: 5,
           left: 0,
-          backgroundImage: `url(${STATIC_IMAGE})`,
           filter: 'blur(5px)',
           zIndex: -2,
         }}
@@ -42,7 +40,7 @@ export const CardItem = () => (
           },
         }}>
         <Image
-          rounded={'lg'}
+          rounded={'full'}
           height={230}
           width={282}
           objectFit={'cover'}

@@ -18,7 +18,7 @@ export const OrderItem = () => {
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme='teal' variant='outline' >Passer le commande</Button>
+      <Button onClick={onOpen} colorScheme='green.400' color={'green.400'} variant='solid' >Passer le commande</Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

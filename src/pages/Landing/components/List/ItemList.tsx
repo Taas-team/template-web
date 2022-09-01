@@ -1,4 +1,4 @@
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react';
+import { Button, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
 import { CardItem } from './CardItem';
 
@@ -27,9 +27,10 @@ export const ItemList = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>
-            {`Notre menu d'aujourd'hui`}
+          <DrawerHeader color={'green.400'}>
+           Notre menu d'aujourd'hui
           </DrawerHeader>
+            <Divider />
           <DrawerBody>
             <CardItem />
           </DrawerBody>

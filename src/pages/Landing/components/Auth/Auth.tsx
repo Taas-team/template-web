@@ -54,14 +54,17 @@ function LoginForm() {
           backdropFilter='auto'
           backdropBlur='2px'
         />
-        <ModalContent >
+        <ModalContent
+          borderRadius={'15px'}
+        >
           <Box minW={{ base: "80%", md: "500px" }}>
             <form onSubmit={handleSubmit}>
               <Stack
                 spacing={4}
-                p="1rem"
+                p="3rem"
                 backgroundColor="whiteAlpha.900"
                 boxShadow="md"
+                borderRadius={'15px'}
               >
                 <FormControl>
                   <InputGroup>
