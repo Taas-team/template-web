@@ -9,8 +9,10 @@ import {
   ModalHeader,
   ModalOverlay, Select, useDisclosure
 } from "@chakra-ui/react";
+import {listItem} from "../../../../common/components/List/Listitem";
+import {name} from "../../../../types/proptypes/FoodNumber";
 
-export const OrderItem = () => {
+export const OrderItem = (props :name ) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const initialRef = React.useRef(null)
@@ -41,11 +43,10 @@ export const OrderItem = () => {
             </FormControl>
             <FormControl mt={4}>
               <FormLabel>Plat à commander</FormLabel>
-              <Select placeholder=''>
-                <option value='option1'>Kopozé</option>
-                <option value='option2'>Riz cantonnais</option>
-                <option value='option3'>Chocolat chaud</option>
-              </Select>
+              <div>
+                {props.name}
+              </div>
+
             </FormControl>
             <FormControl mt={4}>
               <FormLabel>Téléphone </FormLabel>

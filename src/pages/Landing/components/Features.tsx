@@ -85,11 +85,10 @@ const StatsText = ({ children }: { children: ReactNode }) => (
 
 const stats = [
     {
-        title: '10+',
+        title: '100+',
         content: (
             <>
-                <StatsText>Software modules</StatsText> for detailed monitoring and
-                real-time analytics
+                <StatsText>Personnel de service</StatsText> Notre service compte +de 100 personnel pour vous servir à temps
             </>
         ),
     },
@@ -97,8 +96,7 @@ const stats = [
         title: '24/7',
         content: (
             <>
-                <StatsText>Analytics</StatsText> enabled right in your dashboard without
-                history limitations
+                <StatsText>Une journée toute entière</StatsText>Nous sommes disponible à votre envie,à  votre horaire
             </>
         ),
     },
@@ -106,7 +104,7 @@ const stats = [
         title: '13%',
         content: (
             <>
-                <StatsText>Farms</StatsText> in North America has chosen NewLife™ as
+                <StatsText>Des</StatsText> in North America has chosen NewLife™ as
                 their management solution
             </>
         ),

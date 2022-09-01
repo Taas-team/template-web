@@ -1,6 +1,9 @@
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react';
-import React from 'react';
-import { CardItem } from './CardItem';
+import {Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react';
+import React, {useEffect, useState} from 'react';
+import {listItem} from "../../../../common/components/List/Listitem";
+import {CardItem} from "../../CardItem";
+import {useData} from "../../../../utils/hooks/use-data";
+
 
 export const ItemList = () => {
   const [size, setSize] = React.useState('')
@@ -10,8 +13,25 @@ export const ItemList = () => {
     setSize(newSize)
     onOpen()
   }
+  const [dataSet, setDataSet] = useState<any[]>([]);
+  const { getList } = useData();
 
-  return (
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const { data } = await getList("dishes");
+        setDataSet(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetch();
+  }, []);
+
+
+  // @ts-ignore
+    return (
     <>
       <Button
         onClick={() => handleClick(size)}
@@ -31,7 +51,12 @@ export const ItemList = () => {
             {`Notre menu d'aujourd'hui`}
           </DrawerHeader>
           <DrawerBody>
-            <CardItem />
+              <Box>
+                {dataSet.map((label)=>
+                    <CardItem key={label.id} price={label.price} category={label.category} name={label.name}/>
+                )}
+              </Box>
+
           </DrawerBody>
         </DrawerContent>
       </Drawer>
