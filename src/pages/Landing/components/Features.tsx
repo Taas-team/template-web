@@ -6,14 +6,14 @@ import {
     Flex,
     Text,
     Heading,
-    SimpleGrid,
+    SimpleGrid, useColorModeValue, useColorMode,
 } from '@chakra-ui/react';
 
 export default function Features() {
     return (
-        <Box bg={'gray.800'} position={'relative'}>
+        <Box bg={useColorModeValue('gray.100', 'blackAlpha.100')} position={'relative'} >
             <Flex
-                flex={1}
+
                 zIndex={0}
                 display={{ base: 'none' }}
                 backgroundSize={'cover'}
@@ -24,34 +24,29 @@ export default function Features() {
                 right={0}>
                 <Flex
                     bgGradient={'linear(to-r, gray.800 10%, transparent)'}
-                    w={'full'}
-                    h={'full'}
                 />
             </Flex>
             <Container maxW={'7xl'} zIndex={10} position={'relative'}>
                 <Stack direction={{ base: 'column', lg: 'row' }}>
                     <Stack
-                        flex={1}
-                        color={'gray.400'}
                         justify={{ lg: 'center' }}
-                        py={{ base: 4, md: 20, xl: 60 }}>
-                        <Box mb={{ base: 8, md: 20 }}>
+                        py={{ base: 1, md: 2, xl: 5 }}>
+                        <Box mb={{ base: 2, md: 20 }}>
                             <Text
                                 fontFamily={'heading'}
                                 fontWeight={700}
                                 textTransform={'uppercase'}
                                 mb={3}
                                 fontSize={'xl'}
-                                color={'gray.500'}>
-                                Technology
+                                >
+                               E-Sakafo Restaurant
                             </Text>
                             <Heading
-                                color={'white'}
                                 mb={5}
-                                fontSize={{ base: '3xl', md: '5xl' }}>
-                                21st century agriculture
+                                fontSize={{ base: '2xl', md: '4xl' }}>
+                                #1 des restaurants en ligne à Madagascar
                             </Heading>
-                            <Text fontSize={'xl'} color={'gray.400'}>
+                            <Text fontSize={'xl'} >
                                 The NewLife™ technology allows you to monitor your crops and get
                                 complete insights at real time. The proprietary
                                 software/hardware ecosystem prevents your plants from getting
@@ -65,11 +60,10 @@ export default function Features() {
                                     <Text
                                         fontFamily={'heading'}
                                         fontSize={'3xl'}
-                                        color={'white'}
                                         mb={3}>
                                         {stat.title}
                                     </Text>
-                                    <Text fontSize={'xl'} color={'gray.400'}>
+                                    <Text fontSize={'xl'} >
                                         {stat.content}
                                     </Text>
                                 </Box>
@@ -84,7 +78,7 @@ export default function Features() {
 }
 
 const StatsText = ({ children }: { children: ReactNode }) => (
-    <Text as={'span'} fontWeight={700} color={'white'}>
+    <Text as={'span'} fontWeight={700} >
         {children}
     </Text>
 );
