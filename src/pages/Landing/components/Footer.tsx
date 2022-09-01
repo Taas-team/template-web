@@ -1,48 +1,82 @@
-import { ReactNode } from 'react';
 import {
   Box,
+  chakra,
   Container,
-  Stack,
-  SimpleGrid,
-  Text,
   Link,
+  Stack,
+  Text,
   useColorModeValue,
+  VisuallyHidden,
 } from '@chakra-ui/react';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { ReactNode } from 'react';
 
-const ListHeader = ({ children }: { children: ReactNode }) => {
+const Logo = (props: any) => {
   return (
-    <Text fontWeight={'500'} fontSize={'2xl'} mb={2}>
-      {children}
-    </Text>
+      <>
+
+      </>
   );
 };
 
-export default function Footer() {
+const SocialButton = ({
+                        children,
+                        label,
+                        href,
+                      }: {
+  children: ReactNode;
+  label: string;
+  href: string;
+}) => {
   return (
-    <Box
-    borderTopWidth={1}
-    borderStyle={'solid'}
-    borderColor={useColorModeValue('gray.200', 'gray.700')}
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
-      <Container as={Stack} maxW={'6xl'} py={'14'}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-          <Stack align={'flex-start'}>
-            <ListHeader>Nos contact</ListHeader>
-            <Link href={'#'}>+261 34 12 025 20</Link>
-            <Link href={'#'}>+261 33 12 025 20</Link>
-          </Stack>
+      <chakra.button
+          bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+          rounded={'full'}
+          w={8}
+          h={8}
+          cursor={'pointer'}
+          as={'a'}
+          href={href}
+          display={'inline-flex'}
+          alignItems={'center'}
+          justifyContent={'center'}
+          transition={'background 0.3s ease'}
+          _hover={{
+            bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+          }}>
+        <VisuallyHidden>{label}</VisuallyHidden>
+        {children}
+      </chakra.button>
+  );
+};
 
-          <Stack align={'flex-start'}>
-            <ListHeader>Nos messagerie </ListHeader>
-            <Link href={'#'}>mysite@gmail.com</Link>
+export default function SmallWithLogoLeft() {
+  return (
+      <Box
+          bg={useColorModeValue('gray.50', 'gray.900')}
+          color={useColorModeValue('gray.700', 'gray.200')}>
+        <Container
+            as={Stack}
+            maxW={'6xl'}
+            py={4}
+            direction={{ base: 'column', md: 'row' }}
+            spacing={4}
+            justify={{ base: 'center', md: 'space-between' }}
+            align={{ base: 'center', md: 'center' }}>
+          <Logo />
+          <Text>© 2022 E-sakafo restaurant. All rights reserved</Text>
+          <Stack direction={'row'} spacing={6}>
+            <SocialButton label={'Twitter'} href={'#'}>
+              <FaTwitter />
+            </SocialButton>
+            <SocialButton label={'YouTube'} href={'#'}>
+              <FaYoutube />
+            </SocialButton>
+            <SocialButton label={'Instagram'} href={'#'}>
+              <FaInstagram />
+            </SocialButton>
           </Stack>
-
-          <Stack align={'flex-end'}>
-          <Text>© Copyright</Text>
-          </Stack>
-        </SimpleGrid>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
   );
 }

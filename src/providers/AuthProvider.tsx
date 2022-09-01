@@ -1,42 +1,48 @@
-import React, { useMemo } from 'react';
-import axios from 'axios';
-import environment from '../conf/environment';
-import { WithChildren } from '../types/proptypes';
-import { AuthContext } from '../utils/context/auth';
-import { AuthService, ConnectType, Save } from './types/AuthProvider';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+    AuthProvider as IAuthProvider,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+} from 'firebase/auth';
+import { auth } from '../conf/firebase';
+import { AuthContext } from './types/AuthContext';
+import {ComponentWithChild} from "../types/proptypes/Auth/ComponentWIthChild";
+import {User} from "../types/proptypes/Auth/User";
 
-export const AuthProvider = ({ children }: WithChildren) => {
-  
-  const connect: ConnectType = (username, password) => (
-    axios.get(environment.apiBaseUrl, {
-      headers: {
-        authorization: `Basic ${window.btoa(`${username}:${password}`)}`
-      }
-    })
-  );
 
-  const logout = (): void => (
-    window.localStorage.removeItem('hack_auth_token')
-  );
+export function AuthProvider({ children }: ComponentWithChild) {
+    const [user, setUser] = useState<User>(null);
+    const [loading, setLoading] = useState(false);
 
-  const save: Save = (token): void => (
-    window.localStorage.setItem('hack_auth_token', token)
-  );
 
-  const getAuth = () => ({
-    authorization: `Basic ${window.localStorage.getItem("token") || ''}`,
-  });
+    const logIn = (email: string, password: string) => (
+        signInWithEmailAndPassword(auth, email, password)
+    );
 
-  const methods = useMemo<AuthService>(() => ({
-    connect,
-    logout,
-    save,
-    getAuth
-  }), []);
-  
-  return (
-    <AuthContext.Provider value={methods}>
-      {children}
-    </AuthContext.Provider>
-  );
+    const logOut = () => (
+        signOut(auth)
+    );
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const userAuth = useMemo(() => ({
+        user,
+        logIn,
+        logOut,
+    }), [user]);
+
+    return (
+        <AuthContext.Provider value={userAuth}>
+                   {children}
+        </AuthContext.Provider>
+    );
 }

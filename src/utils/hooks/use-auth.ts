@@ -4,4 +4,4 @@ import { AuthContext } from "../context/auth";
 
 export const useAuth = () => (
   useContext(AuthContext) as AuthService
-);;
+);

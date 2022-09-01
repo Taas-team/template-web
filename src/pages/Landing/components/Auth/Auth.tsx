@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Box, FormControl, InputRightElement, useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
 import {
@@ -13,31 +13,50 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import {useNavigate} from "react-router-dom";
+import {signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../../../conf/firebase";
+import {log} from "util";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 const CFaEye = chakra(FaEye);
 const CFaEyeSlash = chakra(FaEyeSlash);
 
+type PayLoadType = {
+  email: string;
+  password: string;
+};
 function LoginForm() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowClick = () => setShowPassword(!showPassword);
+  const navigate = useNavigate();
+  let [email,setEmail] = useState("");
+  let [password,setPassword] = useState("");
+
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+      await signInWithEmailAndPassword(auth,email,password)
+          navigate("/admin/dishes")
+  };
 
   return (
     <>
       <Button onClick={onOpen}>Se connecter</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered={true} size={"2xl"}>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered={true} size={"lg"}>
         <ModalOverlay
           bg='none'
           backdropFilter='auto'
-          backdropInvert='80%'
           backdropBlur='2px'
         />
         <ModalContent >
-          <Box minW={{ base: "100%", md: "510px" }}>
-            <form>
+          <Box minW={{ base: "80%", md: "500px" }}>
+            <form onSubmit={handleSubmit}>
               <Stack
                 spacing={4}
                 p="1rem"
@@ -50,7 +69,9 @@ function LoginForm() {
                       pointerEvents="none"
                       children={<CFaUserAlt color="gray.300" />}
                     />
-                    <Input type="email" placeholder="Adresse email" />
+                    <Input type="email" placeholder="Adresse email"
+                           onChange={(event)=>setEmail( event.target.value)}
+                    />
                   </InputGroup>
                 </FormControl>
                 <FormControl>
@@ -63,6 +84,7 @@ function LoginForm() {
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Mot de Passe"
+                      onChange={(event)=>setPassword(event.target.value)}
                     />
                     <InputRightElement width="4.5rem">
                       <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -79,10 +101,7 @@ function LoginForm() {
                   width="full"
 
                 >
-                  <a href="http://192.168.0.123:3000">
                     Se connecter
-                  </a>
-
                 </Button>
               </Stack>
             </form>

@@ -77,6 +77,15 @@ export const OrderEdit = ({ label, mode }: proptypes) => {
   return (
     <EditDrawer label={label} mode={mode}>
       <Box>
+
+        <FormLabel htmlFor="name">Importer votre image</FormLabel>
+        <Input
+            name="client_name"
+            value={order.clientName}
+            onChange={handleChange}
+        />
+      </Box>
+      <Box>
         <FormLabel htmlFor="name">Nom du client</FormLabel>
         <Input
           placeholder='exemple: client'
