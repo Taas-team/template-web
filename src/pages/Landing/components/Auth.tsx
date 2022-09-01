@@ -35,14 +35,15 @@ function LoginForm() {
           backdropInvert='80%'
           backdropBlur='2px'
         />
-        <ModalContent >
+        <ModalContent w="30vw" >
           <Box minW={{ base: "100%", md: "510px" }}>
-            <form>
+            <form> 
               <Stack
                 spacing={4}
-                p="1rem"
+                p="3rem"
                 backgroundColor="whiteAlpha.900"
                 boxShadow="md"
+                 h='35vh'
               >
                 <FormControl>
                   <InputGroup>

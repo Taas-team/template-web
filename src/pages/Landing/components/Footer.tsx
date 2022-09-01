@@ -23,19 +23,19 @@ export default function Footer() {
     borderTopWidth={1}
     borderStyle={'solid'}
     borderColor={useColorModeValue('gray.200', 'gray.700')}
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg={useColorModeValue('gray.300', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={'14'}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={'flex-start'}>
-            <ListHeader>Nos contact</ListHeader>
+            <ListHeader>Nos contacts</ListHeader>
             <Link href={'#'}>+261 34 12 025 20</Link>
             <Link href={'#'}>+261 33 12 025 20</Link>
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Nos messagerie </ListHeader>
-            <Link href={'#'}>mysite@gmail.com</Link>
+            <ListHeader>Nos messageries </ListHeader>
+            <Link href={'#'}>ekaly@gmail.com</Link>
           </Stack>
 
           <Stack align={'flex-end'}>
